@@ -2,7 +2,7 @@
 
 <p align="center">
 	<h2 align="center">
-		<a href="http://github.com/Expectatives/Discord.js-v13-Example">Discord.js v13 Example Bot</a>
+		<a href="http://github.com/Buddier/Discord.js-v14-Example">Discord.js v14 Example Bot</a>
 	</h2>
 </p>
 
@@ -29,13 +29,13 @@
 	</a>˙ -->
 	<a href="./../../commits/">
 		<img alt="[Last Commit]"
-		src="http://img.shields.io/github/last-commit/Expectatives/Discord.js-v13-Example"/>
+		src="http://img.shields.io/github/last-commit/Buddier/Discord.js-v14-Example"/>
 	</a>
 </p>
 
 ---
 
-> This is an example bot to make commands with categories using [Discord.js v13](http://discord.js.org/#/docs/discord.js/v13/general/welcome), a powerful JavaScript library for interacting with the [Discord API](http://discord.com/developers/docs).
+> This is an example bot to make commands with categories using [Discord.js v14](https://old.discordjs.dev/#/docs/discord.js/main/general/welcome), a powerful JavaScript library for interacting with the [Discord API](http://discord.com/developers/docs).
 > This bot contains examples of commands with legacy prefix ([deprecated](http://support-dev.discord.com/hc/en-us/articles/4404772028055)) and slash commands.
 
 
@@ -112,7 +112,7 @@ Also:
 ---
 
 ## Heroku
-[![Deploy](http://herokucdn.com/deploy/button.svg)](http://heroku.com/deploy?template=http://github.com/Expectatives/Discord.js-v13-Example/tree/master)
+[![Deploy](http://herokucdn.com/deploy/button.svg)](http://heroku.com/deploy?template=http://github.com/Buddier/Discord.js-v14-Example/tree/master)
 
 
 ## Support Server
@@ -121,8 +121,8 @@ If you find an error or need support, go to my discord server and open a ticket:
 
 <details>
 	<summary><b>[ Discord Server Here ]</b></summary>
-    <a href="http://dsc.gg/faithcommunity">
-        Faith Community | Services <br>
+    <a href="http://dsc.gg/bytebound">
+        ByteBound © <br>
         <img alt="[Discord server invite]"
         src="http://invidget.switchblade.xyz/uCUhAXqNNB?theme=dark&language=en"/>
     </a>

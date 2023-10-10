@@ -8,15 +8,27 @@ module.exports = {
     run: async (client, interaction) => {
         const msg = await interaction.channel.send(`🏓 Pinging...`);
 
-        const pingEmbed = new client.discord.MessageEmbed()
+        const pingEmbed = new client.discord.EmbedBuilder()
             .setTitle(':signal_strength: Bot Ping')
-            .addField("Time", `${Math.floor(msg.createdAt - interaction.createdAt)}ms`, true)
-            .addField("API Ping", `${client.ws.ping}ms`, true)
+            .addFields(
+                {
+                    name: "Time",
+                    value: `${Math.floor(msg.createdAt - interaction.createdAt)}ms`,
+                    inline: true
+                },
+                {
+                    name: "API Ping",
+                    value: `${client.ws.ping}ms`,
+                    inline: true
+                }
+            )
             .setColor(client.config.embedColor)
             .setFooter({ text: `${client.config.embedfooterText}`, iconURL: `${client.user.displayAvatarURL()}` });
 
-        await interaction.reply({ embeds: [pingEmbed] });
+        await interaction.reply({
+            embeds: [pingEmbed]
+        });
 
         msg.delete();
-    },
+    }
 };

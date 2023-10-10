@@ -1,4 +1,5 @@
 const { readdirSync } = require("fs");
+const { ApplicationCommandOptionType } = require('discord.js');
 
 // Example of how to make a Help SlashCommand
 
@@ -9,7 +10,8 @@ module.exports = {
         {
             name: 'command',
             description: 'What command do you need help',
-            type: 'STRING',
+            // https://discord-api-types.dev/api/discord-api-types-v10/enum/ApplicationCommandOptionType
+            type: ApplicationCommandOptionType.String,
             required: false
         }
     ],
@@ -21,15 +23,15 @@ module.exports = {
         // Buttons that take you to a link
         // If you want to delete them, remove this part of
         // the code and in line: 62 delete ", components: [row]"
-        const row = new client.discord.MessageActionRow()
+        const row = new client.discord.ActionRowBuilder()
             .addComponents(
-                new client.discord.MessageButton()
+                new client.discord.ButtonBuilder()
                     .setLabel("GitHub")
-                    .setStyle("LINK")
-                    .setURL("http://github.com/Expectatives/Discord.js-v13-Example"),
-                new client.discord.MessageButton()
+                    .setStyle(client.discord.ButtonStyle.Link)
+                    .setURL("http://github.com/Buddier/Discord.js-v14-Example"),
+                new client.discord.ButtonBuilder()
                     .setLabel("Support")
-                    .setStyle("LINK")
+                    .setStyle(client.discord.ButtonStyle.Link)
                     .setURL("http://dsc.gg/faithcommunity")
             );
 
@@ -53,11 +55,21 @@ module.exports = {
             });
 
             // This is what it commands when using the command without arguments
-            const helpEmbed = new client.discord.MessageEmbed()
+            const helpEmbed = new client.discord.EmbedBuilder()
                 .setTitle(`${client.user.username} SlashHelp`)
                 .setDescription(` Hello **<@${interaction.member.id}>**, I am <@${client.user.id}>.  \nYou can use \`/help <slash_command>\` to see more info about the SlashCommands!\n**Total Commands:** ${client.commands.size}\n**Total SlashCommands:** ${client.slash.size}`)
-                .addField("🤖 - Bot SlashCommands", botCommandsList.map((data) => `${data}`).join(", "), true)
-                .addField("🛠 - Utility SlashCommands", utilityCommandsList.map((data) => `${data}`).join(", "), true)
+                .addFields(
+                    {
+                        name: "🤖 - Bot SlashCommands",
+                        value: botCommandsList.map((data) => `${data}`).join(", "),
+                        inline: true
+                    },
+                    {
+                        name: "🛠 - Utility SlashCommands",
+                        value: utilityCommandsList.map((data) => `${data}`).join(", "),
+                        inline: true
+                    }
+                )
                 .setColor(client.config.embedColor)
                 .setFooter({ text: `${client.config.embedfooterText}`, iconURL: `${client.user.displayAvatarURL()}` });
 
@@ -77,17 +89,27 @@ module.exports = {
                 let usage = command.usage || "No usage provided"
                 let category = command.category || "No category provided!"
 
-                let helpCmdEmbed = new client.discord.MessageEmbed()
+                let helpCmdEmbed = new client.discord.EmbedBuilder()
                     .setTitle(`${client.user.username} Help | \`${(name.toLocaleString())}\` SlashCommand`)
                     .addFields(
-                        { name: "Description", value: `${description}` },
-                        { name: "Usage", value: `${usage}` },
-                        { name: 'Category', value: `${category}` })
+                        {
+                            name: "Description",
+                            value: `${description}`
+                        },
+                        {
+                            name: "Usage",
+                            value: `${usage}`
+                        },
+                        {
+                            name: 'Category',
+                            value: `${category}`
+                        }
+                    )
                     .setColor(client.config.embedColor)
                     .setFooter({ text: `${client.config.embedfooterText}`, iconURL: `${client.user.displayAvatarURL()}` });
 
                 interaction.reply({ embeds: [helpCmdEmbed] });
             }
         }
-    },
+    }
 };

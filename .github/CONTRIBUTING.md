@@ -3,7 +3,7 @@
 
 [Back]
 
-> Guide to contributing to [Expectatives/Discord.js-v13-Example](http://github.com/Expectatives/Discord.js-v13-Example) repo.
+> Guide to contributing to [Buddier/Discord.js-v14-Example](http://github.com/Buddier/Discord.js-v14-Example) repo.
 
 ### Table of content
 - [CONTRIBUTING](#contributing)
@@ -27,5 +27,5 @@ Do not add any of the following in a Pull Request or risk getting the PR closed:
 ---
 
 [Back]: ../README.md
-[Pull Requests (PR is short)]: http://github.com/Expectatives/Discord.js-v13-Example/pulls
+[Pull Requests (PR is short)]: http://github.com/Buddier/Discord.js-v14-Example/pulls
 [Terms of Service (ToS is short)]: http://github.com/site/terms

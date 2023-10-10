@@ -9,10 +9,8 @@ module.exports = {
     async execute(client) {
         
         // Puts an activity
-        client.user.setActivity("Expectatives#1157", {
-            type: "WATCHING",
-            name: "Expectatives#1157"
-        });
+        // ActivityType: https://discord-api-types.dev/api/discord-api-types-v10/enum/ActivityType
+        client.user.setActivity('@Buddier', { type: client.discord.ActivityType.Watching });
         
         // Send a message on the console
         console.log(`[LOG] ${client.user.tag} is now online!`);
